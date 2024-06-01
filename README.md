@@ -1,54 +1,37 @@
-![](https://github.com/xyflow/web/blob/main/assets/codesandbox-header-ts.png?raw=true)
+# Chatbot Flow Builder
 
-# React Flow starter (Vite + TS)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-We've put together this template to serve as a starting point for folks
-interested in React Flow. You can use this both as a base for your own React
-Flow applications, or for small experiments or bug reports.
+A simple chatbot flow builder built using React. This project allows users to create chatbot flows by connecting messages together.
 
-**TypeScript not your thing?** We also have a vanilla JavaScript starter template,
-just for you!
+---
 
-## Getting up and running
+<img width="1470" alt="image" src="https://github.com/saum2000/chatbot-flow-reactflow/assets/65463471/e0cf786f-06f6-4dfd-b186-2ba974c15215">
 
-You can get this template without forking/cloning the repo using `degit`:
 
-```bash
-npx degit xyflow/vite-react-flow-template your-app-name
-```
+## Features
 
-The template contains mostly the minimum dependencies to get up and running, but
-also includes eslint and some additional rules to help you write React code that
-is less likely to run into issues:
+- **Text Node:** Supports adding multiple text nodes to the flow.
+- **Nodes Panel:** Houses different types of nodes. Easily extensible for adding more node types in the future.
+- **Edge:** Connects two nodes together.
+- **Source Handle:** Originates a connecting edge. Supports only one edge per source handle.
+- **Target Handle:** Receives a connecting edge. Supports multiple edges per target handle.
+- **Settings Panel:** Replaces the Nodes Panel when a node is selected. Allows editing text of the selected text node.
+- **Save Button:** Saves the flow. Shows an error if there are more than one nodes and any node has empty target handles.
 
-```bash
-npm install # or `pnpm install` or `yarn install`
-```
+## Usage
 
-Vite is a great development server and build tool that we recommend our users to
-use. You can start a development server with:
+1. Drag and drop nodes from the Nodes Panel to the Flow Canvas to create your chatbot flow.
+2. Connect nodes together using edges to define the flow of messages.
+3. Use the Settings Panel to edit the text of selected text nodes.
+4. Click the Save button to save your chatbot flow. Ensure all nodes are connected to avoid errors.
 
-```bash
-npm run dev
-```
+## Installation
 
-While the development server is running, changes you make to the code will be
-automatically reflected in the browser!
+1. Clone the repository:
 
-## Things to try:
+   ```git clone https://github.com/saum2000/chatbot-flow-builder.git```
+2. run `npm i`
+3. run `npm run dev`
 
-- Create a new custom node inside `src/nodes/` (don't forget to export it from `src/nodes/index.ts`).
-- Change how things look by [overriding some of the built-in classes](https://reactflow.dev/learn/customization/theming#overriding-built-in-classes).
-- Add a layouting library to [position your nodes automatically](https://reactflow.dev/learn/layouting/layouting)
 
-## Resources
-
-Links:
-
-- [React Flow - Docs](https://reactflow.dev)
-- [React Flow - Discord](https://discord.com/invite/Bqt6xrs)
-
-Learn:
-
-- [React Flow – Custom Nodes](https://reactflow.dev/learn/customization/custom-nodes)
-- [React Flow – Layouting](https://reactflow.dev/learn/layouting/layouting)
