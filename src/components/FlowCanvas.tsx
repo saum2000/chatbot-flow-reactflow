@@ -18,7 +18,7 @@ import { useDrop } from 'react-dnd';
 import { EdgeContext, NodesContext, SelectedNodeContext } from "../context/nodeContext";
 
 export default function FlowCanvas() {
-  const { _, setSelectedNode } = useContext(SelectedNodeContext);
+  const { setSelectedNode } = useContext(SelectedNodeContext);
   const { nodes, setNodes } = useContext(NodesContext);
   const { edges, setEdges } = useContext(EdgeContext);
   const nodeCount = useRef<number>(nodes.length + 1);
@@ -37,10 +37,18 @@ export default function FlowCanvas() {
 
   // Handle new connections
   const onConnect = useCallback(
-    (connection: Edge | Connection) => setEdges((eds: Edge[]) => addEdge({ ...connection, type: 'pointedEdge' }, eds)),
-    [setEdges]
+    (connection: Edge | Connection) => {
+      // Check if a connection already exists from the source
+      const existingSourceConnection = edges.some((edge: { source: string | null; }) => edge.source === connection.source);
+      // Check if a connection already exists to the target
+      const existingTargetConnection = edges.some((edge: { target: string | null; }) => edge.target === connection.target);
+  
+      if (!existingSourceConnection && !existingTargetConnection) {
+        setEdges((eds: Edge[]) => addEdge({ ...connection, type: 'pointedEdge' }, eds));
+      } 
+    },
+    [setEdges, edges]
   );
-
   // Handle selection change
   const onSelectionChange: OnSelectionChangeFunc = (selectedItems: any) => {
     const selectedNode = selectedItems.nodes[0] || {};
@@ -54,8 +62,8 @@ export default function FlowCanvas() {
       const offset = monitor.getClientOffset();
       if (offset) {
         const position = {
-          x: offset.x - 200, // Adjust for side panel width
-          y: offset.y - 700,
+          x: offset.x - 400, // Adjust for side panel width
+          y: offset.y - 600,
         };
         const newNode: Node = {
           id: `node-${nodeCount.current}-${Math.floor(Math.random() * 1000)}`,

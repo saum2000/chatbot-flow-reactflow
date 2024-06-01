@@ -44,7 +44,7 @@ const DraggableNode: React.FC<{ node: NodeType }> = ({ node }) => {
             <div className="shadow-md rounded-md bg-white border-2 border-stone-400">
                 <div className={`py-2 px-1 flex gap-2 items-center justify-center  w-full ${node.type == "alert" ? "bg-red-500" : "bg-indigo-300"}`}>
                     <div className="rounded-full h-4 w-4 flex justify-around items-center bg-gray-100">
-                        <img src="src/assets/images/message.svg" height="10px" width="10px" />
+                        <img src="assets/message.svg" height="10px" width="10px" />
                     </div>
                     <div className={`font-bold text-medium ${node.type == "alert" ? "text-white" : "text-indigo-900"}`}>
                         {node.type == "alert" ? 'Alert' : 'Message'}

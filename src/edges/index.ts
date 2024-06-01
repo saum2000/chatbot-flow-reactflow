@@ -1,4 +1,4 @@
-import { SimpleBezierEdge, SmoothStepEdge, StepEdge, StraightEdge, type Edge, type EdgeTypes } from "reactflow";
+import { type Edge, type EdgeTypes } from "reactflow";
 import PointedEdge from "./PointedEdge";
 
 export const initialEdges = [
