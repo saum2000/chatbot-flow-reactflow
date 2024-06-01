@@ -1,0 +1,21 @@
+.new-node {
+    padding: 1.5rem;
+    box-shadow: 0 4px 0px 4px rgba(0, 0, 0, .04);
+    width: 20%;
+    z-index: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background: rgb(248, 247, 247);
+}
+
+.draggable-node {
+    margin: 0.75rem;
+    border-radius: 0.25rem;
+    cursor: grab;
+    margin-bottom: 0.75rem;
+    background: #fff;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, .05);
+}
+
